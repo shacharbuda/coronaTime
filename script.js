@@ -635,8 +635,9 @@ const mock = {
 	"code": "IL"
 	};	
 
-	$(document).ready(() => {
-		const data = mock;
+	$(document).ready(async () => {
+		const data = await getDataByCountry('il');
+
 		$('.spinner-container').fadeOut();
 		$('.data').fadeIn();
 
@@ -646,6 +647,17 @@ const mock = {
 
 		writeItems(latest);
 	})
+
+	const getDataByCountry = async (countryCode) => {
+		return mock;
+		try {
+			const res = await Axios.get(`http://covid19.soficoop.com/country/${countryCode}`);
+			return res.data;
+		} catch(e) {
+			alert("שגיאה");
+			console.error('e ?', e);
+		}
+	}
 
 	const writeItems = (items) => {
 
