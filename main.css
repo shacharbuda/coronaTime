@@ -1,0 +1,114 @@
+html {
+  height: 100%;
+}
+
+body {
+	height: 100%;
+	overflow: hidden;
+	direction: rtl;
+	padding: 5px;
+}
+
+.spinner-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.container {
+	height: 90%;
+	width: 50%;
+}
+
+#city-holder {
+	display: none;
+}
+
+.current-location-holder {
+	text-align: center;
+	height: 48px;
+	margin-bottom: 12px;
+}
+
+.current-location-holder > p {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.container > .data {
+	/* height w/o location holders */
+	height: calc(100% - 120px);
+	width: 100%;
+	display: flex;
+	margin: auto;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer {
+	height: 10%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.footer > * {
+	margin: 0 6px;
+}
+
+.highlight-text {
+	background: lightgreen;
+}
+
+@media only screen and (max-width: 500px) {
+	.my-row {
+		width: calc(33.3% - 10px);
+	}
+}
+
+@media only screen and (min-width: 501px) {
+	.my-row {
+		min-width: 73px;
+	}
+}
+
+@media only screen and (min-width: 950px) {
+	.my-row {
+		min-width: 100px;
+	}
+}
+
+.my-row {
+	height: 100px;
+	text-align: center;
+	transition: transform 0.3s;
+}
+
+.my-row:hover, .my-row:active {
+	transform: rotate(360deg);
+}
+
+.my-row > .category-title {
+	margin: 0;
+	height: 40px;
+	border-bottom: 1px solid black;
+}
+
+.my-row  {
+	width: 150px;
+}
+
+.my-row > .value-container {
+	display: flex;
+	height: calc(100% - 40px);
+	justify-content: center;
+	align-items: center;
+}
+
+.card-body {
+	height: 120px;
+}
+
+#bug-btn {
+	display: flex;
+	align-items: center;
+}
