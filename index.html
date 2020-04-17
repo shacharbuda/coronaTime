@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<!--
+<!--
 
  __  __     _   _   _____ _           ___      _   
 |  \/  |___| |_(_) |_   _| |_  ___   / __|__ _| |_ 
@@ -10,77 +10,85 @@
 Developed By Shachar Buda
 
 	-->
+
 <head>
-	<meta charset='utf-8'>
-	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
-	<title>CoronaTime</title>
-	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
-	<link rel="manifest" href="./manifest.json" />
-	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-	<!-- JQuery -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-	<!-- Lodash -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js'></script>
-	<!-- Bootstrap -->
-	<link rel='stylesheet' type='text/css' media='screen' href='bootstrap.css'>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-	<script src='script.js'></script>
-	<style>
-		.blockquote-footer {
-			font-size: medium;
-		}
-	</style>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>CoronaTime</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <!-- JQuery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <!-- Lodash -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js'></script>
+  <!-- Bootstrap -->
+  <link rel='stylesheet' type='text/css' media='screen' href='bootstrap.css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+  <script src='script.js'></script>
+  <style>
+    .blockquote-footer {
+      font-size: medium;
+    }
+  </style>
 </head>
+
 <body>
-	<div class="spinner-container">
-		<div class="spinner-border" ></div>
-	</div>
-	<div class="container">
-		<div class="data" style="display: none;">
-			<div class="my-row">
-			<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">סה"כ חולים</h5>
-						<p class="card-text" id="total"></p>
-					</div>
-				</div>
-			</div>
-			<div class="my-row">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">נדבקו היום</h5>
-						<p class="card-text" id="today"></p>
-					</div>
-				</div>
-			</div>
-			<div class="my-row">
-					<div class="card">
-						<div class="card-body">
-							<h5 class="card-title">מתים</h5>
-							<p class="card-text" id="deaths"></p>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
-	<div class="text-center blockquote-footer">
-		הנתונים מתבססים על הדיווח האחרון
-		<br/>
-		מ<span class="font-weight-bolder" id="time-since-report"></span> 
-		<br/>
-		נתונים: <a href="https://www.facebook.com/aviran.katz/posts/10218511566915206">Aviran Katz</a> ואתר <a href="https://www.worldometers.info/coronavirus/">worldometers</a>
-	</div>
-	  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <div class="spinner-container">
+    <div class="spinner-border"></div>
+  </div>
+  <div class="container">
+    <div class="data" style="display: none;">
+      <div class="my-row">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">סה"כ חולים</h5>
+            <p class="card-text" id="total"></p>
+          </div>
+        </div>
+      </div>
+      <div class="my-row">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">נדבקו היום</h5>
+            <p class="card-text" id="today"></p>
+          </div>
+        </div>
+      </div>
+      <div class="my-row">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">מתים</h5>
+            <p class="card-text" id="deaths"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center blockquote-footer">
+    הנתונים מתבססים על הדיווח האחרון
+    <br />
+    מ<span class="font-weight-bolder" id="time-since-report"></span>
+    <br />
+    נתונים: <a href="https://www.facebook.com/aviran.katz/posts/10218511566915206">Aviran Katz</a> ואתר <a
+      href="https://www.worldometers.info/coronavirus/">worldometers</a>
+  </div>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-		<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
 
-		<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-		<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
 </body>
+
 </html>
