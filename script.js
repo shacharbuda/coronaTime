@@ -20,7 +20,7 @@
 	const getDataByCountry = async (countryCode) => {
 		try {
 			const currentDate = moment().format('YYYY-MM-DD');
-			const res = await axios.get(`http://covid19.soficoop.com/country/${countryCode}?after=${currentDate}`);
+			const res = await axios.get(`https://covid19.soficoop.com/country/${countryCode}?after=${currentDate}`);
 			return res.data;
 		} catch(e) {
 			alert("שגיאה");
